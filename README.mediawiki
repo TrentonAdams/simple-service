@@ -1,0 +1,16 @@
+== simple-service ==
+Jersey simple-service examples
+
+Download tomcat7, and setup tomcat-users.xml with the following...
+  <role rolename="manager-gui"/>
+  <role rolename="manager-script"/>
+  <user username="manager" password="manager" roles="manager-gui,manager-script,manager-status"/>
+
+Run....
+mvn clean install tomcat7:undeploy tomcat7:deploy
+
+Alternatively, run the following...
+
+mvn install
+
+And install the war in target/ manually into your servlet container.
