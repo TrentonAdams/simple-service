@@ -7,10 +7,11 @@ Download tomcat7, and setup tomcat-users.xml with the following...
   <user username="manager" password="manager" roles="manager-gui,manager-script,manager-status"/>
 
 Run....
-mvn clean install tomcat7:undeploy tomcat7:deploy
+
+ mvn clean install tomcat7:undeploy tomcat7:deploy
 
 Alternatively, run the following...
 
-mvn install
+ mvn install
 
 And install the war in target/ manually into your servlet container.
