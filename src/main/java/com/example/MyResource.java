@@ -20,9 +20,6 @@ import javax.ws.rs.core.UriInfo;
 public class MyResource
 {
 
-/*    @Inject
-    public HttpSession session;*/
-
     @Context
     private UriInfo uriInfo;
 
