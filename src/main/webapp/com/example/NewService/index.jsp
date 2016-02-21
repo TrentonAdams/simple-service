@@ -22,7 +22,7 @@
 <h2>@InjectLink(resource=NewService.class)</h2>
 <p>service link: ${model.serviceUri}</p>
 
-<h2>@Context loading UriInfo</h2>
+<h2>@Context UriInfo</h2>
 <ul>
   <li>uriInfo: ${model.uriInfo.getPath(false)}</li>
   <li>matchedURIs: ${model.uriInfo.getMatchedURIs(false)}</li>
@@ -32,7 +32,9 @@
 </ul>
 
 
-<h2>@InjectLinks - into an array</h2>
+<h2>@InjectLinks(value = {
+        @InjectLink(resource = MyResource.class),
+        @InjectLink(resource = NewService.class)})</h2>
 <ul>
 <c:forEach var="link" items="${model.serviceLinks}">
   <li>${link.uri}</li>

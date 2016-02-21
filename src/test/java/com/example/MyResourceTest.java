@@ -52,16 +52,4 @@ public class MyResourceTest
             String.class);
         assertEquals("Got it!", responseMsg);
     }
-
-    /**
-     * Test to see that the message "Got it!" is sent in the response.
-     */
-    @Test
-    public void testIndex()
-    {
-        String responseMsg = target.path("/newservice/index").request().get(
-            String.class);
-        Assert.assertTrue("html not returned",
-            responseMsg != null && responseMsg.contains("Jsp example"));
-    }
 }
