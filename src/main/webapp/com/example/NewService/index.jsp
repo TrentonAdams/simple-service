@@ -64,6 +64,9 @@
   <li><a href="${url}">${url} - path parameter + query parameter test</a></li>
 </ul>
 
-
+<h2>Bean Validation</h2>
+<p>
+  field validation failure: ${fail}
+</p>
 </body>
 </html>

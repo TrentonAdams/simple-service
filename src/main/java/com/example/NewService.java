@@ -1,14 +1,19 @@
 package com.example;
 
+import com.example.validation.PassiveValidate;
 import org.glassfish.jersey.linking.InjectLink;
 import org.glassfish.jersey.linking.InjectLinks;
 import org.glassfish.jersey.server.mvc.Template;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import javax.validation.constraints.NotNull;
+import javax.validation.executable.ValidateOnExecution;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
+import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.Link;
 import javax.ws.rs.core.MediaType;
@@ -30,12 +35,21 @@ import java.util.List;
 @Path("/newservice")
 public class NewService
 {
+    public static final String message = "HAHAHA";
     protected String name;
+
+    @Context
+    protected HttpServletRequest request;
 
     public NewService()
     {
         name = "my service " + System.currentTimeMillis();
     }
+
+    @PassiveValidate(message = "an error occurred")
+    //@NotNull(message = "ouch, an error occurred")
+    @QueryParam("query")
+    private String query;
 
     /**
      * Example of a custom injection using {@link HttpSessionFactory}
@@ -133,4 +147,8 @@ public class NewService
         return this;
     }
 
+    public String getQuery()
+    {
+        return query;
+    }
 }
