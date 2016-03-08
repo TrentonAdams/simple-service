@@ -8,16 +8,11 @@ import org.glassfish.jersey.server.mvc.Template;
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-import javax.validation.constraints.NotNull;
-import javax.validation.executable.ValidateOnExecution;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
-import javax.ws.rs.core.Context;
-import javax.ws.rs.core.Link;
-import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.UriInfo;
+import javax.ws.rs.core.*;
 import java.net.URI;
 import java.util.List;
 
@@ -32,8 +27,8 @@ import java.util.List;
  *
  * @author Trenton D. Adams
  */
-@Path("/newservice")
-public class NewService
+@Path("/")
+public class MainService
 {
     public static final String message = "HAHAHA";
     protected String name;
@@ -41,7 +36,7 @@ public class NewService
     @Context
     protected HttpServletRequest request;
 
-    public NewService()
+    public MainService()
     {
         name = "my service " + System.currentTimeMillis();
     }
@@ -67,15 +62,15 @@ public class NewService
      * Injects links for all services.
      */
     @InjectLinks(value = {
-        @InjectLink(resource = MyResource.class),
-        @InjectLink(resource = NewService.class)})
+        @InjectLink(resource = WebService.class),
+        @InjectLink(resource = MainService.class)})
     private
     List<Link> serviceLinks;
 
     /**
      * A link to this service, which can be used to construct sub-URIs.
      */
-    @InjectLink(resource = NewService.class)
+    @InjectLink(resource = MainService.class)
     private URI serviceUri;
 
     /**
@@ -122,30 +117,41 @@ public class NewService
     @GET
     @Produces(MediaType.TEXT_HTML)
     @Path("/")
-    @Template(name = "index.jsp")
-    public NewService getService()
+    @Template(name = "/WEB-INF/jsp/index.jsp")
+    public MainService getService()
     {
         return this;
     }
 
     @GET
     @Path("/test")
-    @Template(name = "index.jsp")
+    @Template(name = "/WEB-INF/jsp/index.jsp")
     @Produces(MediaType.TEXT_HTML)
-    public NewService getTest()
+    public MainService getTest()
     {
-        page = "/test.jsp";
+        page = "/WEB-INF/jsp/test.jsp";
         return this;
     }
+
     @GET
     @Path("/test/{pathParam}")
-    @Template(name = "index.jsp")
+    @Template(name = "/WEB-INF/jsp/index.jsp")
     @Produces(MediaType.TEXT_HTML)
-    public NewService getPathParam()
+    public MainService getPathParam()
     {
-        page = "/testpath.jsp";
+        page = "/WEB-INF/jsp/testpath.jsp";
         return this;
     }
+
+    @GET
+    @Path("convention")
+    @Template(name = "index.jsp")
+    @Produces(MediaType.TEXT_HTML)
+    public MainService getConvention()
+    {
+        return this;
+    }
+
 
     public String getQuery()
     {

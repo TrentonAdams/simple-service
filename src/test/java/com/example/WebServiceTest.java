@@ -13,7 +13,7 @@ import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 
-public class MyResourceTest
+public class WebServiceTest
 {
 
     private HttpServer server;
@@ -48,8 +48,9 @@ public class MyResourceTest
     @Test
     public void testGetIt()
     {
-        String responseMsg = target.path("myresource/string").request().get(
+        String responseMsg = target.path("web-service/string").request().get(
             String.class);
-        assertEquals("Got it!", responseMsg);
+        assertEquals("This is a simple REST web service, not using " +
+            "the Jersey Templates", responseMsg);
     }
 }

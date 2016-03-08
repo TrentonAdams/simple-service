@@ -5,7 +5,7 @@
 </p>
 
 <h2>Jersey Examples</h2>
-<jsp:include page="/pageinfo.jsp"/>
+<jsp:include page="/WEB-INF/jsp/pageinfo.jsp"/>
 <h2>Bean Validation</h2>
 <p>
   Field validation failure: ${fail}

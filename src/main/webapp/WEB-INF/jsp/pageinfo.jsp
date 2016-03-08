@@ -1,5 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<jsp:useBean id="model" scope="request" type="com.example.NewService"/>
+<jsp:useBean id="model" scope="request" type="com.example.MainService"/>
 <p>Jsp example: ${model.name}</p>
 
 <h3>@Inject - with HttpSessionFactory</h3>
@@ -29,12 +29,14 @@
 <ul>
   <c:set var="url" value="${model.serviceUri}"/>
   <li><a href="${url}">${url} - main service</a></li>
-  <c:set var="url" value="${model.serviceUri}/test/"/>
+  <c:set var="url" value="${model.serviceUri}test/"/>
   <li><a href="${url}">${url} - test sub-path</a></li>
-  <c:set var="url" value="${model.serviceUri}/test?test=blah"/>
+  <c:set var="url" value="${model.serviceUri}test?test=blah"/>
   <li><a href="${url}">${url} - query parameter test</a></li>
-  <c:set var="url" value="${model.serviceUri}/test/blah/"/>
+  <c:set var="url" value="${model.serviceUri}test/blah/"/>
   <li><a href="${url}">${url} - path parameter test</a></li>
-  <c:set var="url" value="${model.serviceUri}/test/blah/?test=blah"/>
+  <c:set var="url" value="${model.serviceUri}test/blah/?test=blah"/>
   <li><a href="${url}">${url} - path parameter + query parameter test</a></li>
+  <c:set var="url" value="${model.serviceUri}convention"/>
+  <li><a href="${url}">${url} - path by convention</a></li>
 </ul>

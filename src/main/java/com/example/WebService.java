@@ -15,9 +15,9 @@ import javax.ws.rs.core.UriInfo;
 /**
  * Root resource (exposed at "myresource" path)
  */
-@Path("myresource")
+@Path("web-service")
 
-public class MyResource
+public class WebService
 {
 
     @Context
@@ -35,14 +35,7 @@ public class MyResource
     public String getIt()
     {
 //        System.out.println(request.getSession().getId());
-        return "Got it!";
-    }
-
-    @GET
-    @Template(name = "index2.jsp")
-    public String getTemplate()
-    {
-        return "mymodel";
+        return "This is a simple REST web service, not using the Jersey Templates";
     }
 
 }
