@@ -6,6 +6,7 @@ import org.glassfish.jersey.linking.InjectLinks;
 import org.glassfish.jersey.server.mvc.Template;
 
 import javax.inject.Inject;
+import javax.mvc.annotation.Controller;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.ws.rs.GET;
@@ -149,6 +150,14 @@ public class MainService
     public MainService getConvention()
     {
         return this;
+    }
+
+    @GET
+    @Controller
+    @Path("/controller")
+    public String getController()
+    {
+        return "/WEB-INF/jsp/controller.jsp";
     }
 
 

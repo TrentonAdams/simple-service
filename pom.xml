@@ -72,9 +72,9 @@
 
     <!-- allow @InjectLink usage-->
     <dependency>
-        <groupId>org.glassfish.jersey.ext</groupId>
-        <artifactId>jersey-declarative-linking</artifactId>
-        <version>2.22.1</version>
+      <groupId>org.glassfish.jersey.ext</groupId>
+      <artifactId>jersey-declarative-linking</artifactId>
+      <version>2.22.1</version>
     </dependency>
 
     <dependency>
@@ -88,14 +88,14 @@
       <version>2.2.4</version>
     </dependency>
     <dependency>
-        <groupId>javax.servlet</groupId>
-        <artifactId>jstl</artifactId>
-        <version>1.2</version>
+      <groupId>javax.servlet</groupId>
+      <artifactId>jstl</artifactId>
+      <version>1.2</version>
     </dependency>
     <dependency>
-        <groupId>org.glassfish.jersey.ext</groupId>
-        <artifactId>jersey-bean-validation</artifactId>
-        <version>2.22.1</version>
+      <groupId>org.glassfish.jersey.ext</groupId>
+      <artifactId>jersey-bean-validation</artifactId>
+      <version>2.22.1</version>
     </dependency>
 
 
@@ -103,6 +103,13 @@
       <groupId>asm</groupId>
       <artifactId>asm</artifactId>
       <version>3.3.1</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.glassfish.ozark</groupId>
+      <artifactId>ozark</artifactId>
+      <version>1.0.0-m02</version>
+      <scope>compile</scope>
     </dependency>
     <!-- uncomment this to get JSON support:
      <dependency>
@@ -135,8 +142,8 @@
         <version>2.5.1</version>
         <inherited>true</inherited>
         <configuration>
-          <source>1.7</source>
-          <target>1.7</target>
+          <source>1.8</source>
+          <target>1.8</target>
         </configuration>
       </plugin>
       <plugin>
