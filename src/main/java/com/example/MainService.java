@@ -64,8 +64,7 @@ public class MainService
     @InjectLinks(value = {
         @InjectLink(resource = WebService.class),
         @InjectLink(resource = MainService.class)})
-    private
-    List<Link> serviceLinks;
+    private List<Link> serviceLinks;
 
     /**
      * A link to this service, which can be used to construct sub-URIs.
