@@ -34,11 +34,17 @@
   <c:when test="${model.page == '/WEB-INF/jsp/testpath.jsp'}">
     <jsp:include page="/WEB-INF/jsp/testpath.jsp"/>
   </c:when>
+  <c:when test="${model.page == '/WEB-INF/jsp/parameters.jsp'}">
+    <jsp:include page="/WEB-INF/jsp/parameters.jsp"/>
+  </c:when>
   <c:otherwise>
     <jsp:include page="/WEB-INF/jsp/default-view.jsp"/>
   </c:otherwise>
 </c:choose>
 
-<jsp:include page="pageinfo.jsp"/>
+<c:if test="${model.page == '/WEB-INF/jsp/test.jsp'}">
+  <jsp:include page="pageinfo.jsp"/>
+</c:if>
+
 </body>
 </html>

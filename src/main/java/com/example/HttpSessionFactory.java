@@ -24,7 +24,7 @@ public class HttpSessionFactory implements Factory<HttpSession>
     private final HttpServletRequest request;
 
     @Inject
-    public HttpSessionFactory(HttpServletRequest request)
+    public HttpSessionFactory(final HttpServletRequest request)
     {
         this.request = request;
     }
@@ -36,7 +36,7 @@ public class HttpSessionFactory implements Factory<HttpSession>
     }
 
     @Override
-    public void dispose(HttpSession t)
+    public void dispose(final HttpSession t)
     {
     }
 }

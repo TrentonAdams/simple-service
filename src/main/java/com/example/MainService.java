@@ -1,12 +1,12 @@
 package com.example;
 
+import com.example.mvc.PageModel;
 import com.example.validation.PassiveValidate;
 import org.glassfish.jersey.linking.InjectLink;
 import org.glassfish.jersey.linking.InjectLinks;
 import org.glassfish.jersey.server.mvc.Template;
 
 import javax.inject.Inject;
-import javax.mvc.annotation.Controller;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.ws.rs.GET;
@@ -29,7 +29,7 @@ import java.util.List;
  * @author Trenton D. Adams
  */
 @Path("/")
-public class MainService
+public class MainService extends PageModel
 {
     public static final String message = "HAHAHA";
     protected String name;
@@ -118,7 +118,7 @@ public class MainService
     @Produces(MediaType.TEXT_HTML)
     @Path("/")
     @Template(name = "/WEB-INF/jsp/index.jsp")
-    public MainService getService()
+    public PageModel getService()
     {
         return this;
     }
@@ -127,7 +127,7 @@ public class MainService
     @Path("/test")
     @Template(name = "/WEB-INF/jsp/index.jsp")
     @Produces(MediaType.TEXT_HTML)
-    public MainService getTest()
+    public PageModel getTest()
     {
         page = "/WEB-INF/jsp/test.jsp";
         return this;
@@ -137,7 +137,7 @@ public class MainService
     @Path("/test/{pathParam}")
     @Template(name = "/WEB-INF/jsp/index.jsp")
     @Produces(MediaType.TEXT_HTML)
-    public MainService getPathParam()
+    public PageModel getPathParam()
     {
         page = "/WEB-INF/jsp/testpath.jsp";
         return this;
@@ -147,18 +147,18 @@ public class MainService
     @Path("convention")
     @Template(name = "index.jsp")
     @Produces(MediaType.TEXT_HTML)
-    public MainService getConvention()
+    public PageModel getConvention()
     {
         return this;
     }
 
-    @GET
+/*    @GET
     @Controller
     @Path("/controller")
     public String getController()
     {
         return "/WEB-INF/jsp/controller.jsp";
-    }
+    }*/
 
 
     public String getQuery()

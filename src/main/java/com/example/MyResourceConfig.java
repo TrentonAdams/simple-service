@@ -1,5 +1,7 @@
 package com.example;
 
+import com.example.parameters.ParameterHandler;
+import com.example.parameters.SampleParameters;
 import org.glassfish.hk2.api.InjectionResolver;
 import org.glassfish.hk2.api.TypeLiteral;
 import org.glassfish.hk2.utilities.binding.AbstractBinder;
@@ -42,6 +44,15 @@ public class MyResourceConfig extends ResourceConfig
             protected void configure()
             {
                 bindFactory(HttpSessionFactory.class).to(HttpSession.class);
+            }
+        });
+        register(new AbstractBinder()
+        {
+            @Override
+            protected void configure()
+            {
+                bindFactory(ParameterHandlerFactory.class).to(
+                    ParameterHandler.class);
             }
         });
         register(JspMvcFeature.class);
