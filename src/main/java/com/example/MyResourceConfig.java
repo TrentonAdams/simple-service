@@ -52,7 +52,7 @@ public class MyResourceConfig extends ResourceConfig
             protected void configure()
             {
                 bindFactory(ParameterHandlerFactory.class).to(
-                    ParameterHandler.class);
+                    new TypeLiteral<ParameterHandler<SampleParameters>>(){});
             }
         });
         register(JspMvcFeature.class);

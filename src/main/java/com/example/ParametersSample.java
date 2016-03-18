@@ -6,6 +6,7 @@ import com.example.parameters.SampleParameters;
 import org.glassfish.jersey.server.mvc.Template;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpSession;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
@@ -29,6 +30,9 @@ public class ParametersSample extends PageModel
 
     @Inject
     protected ParameterHandler<SampleParameters> pageParameters;
+
+    @Inject
+    HttpSession httpSession;
 
     @GET
     @Produces(MediaType.TEXT_HTML)
